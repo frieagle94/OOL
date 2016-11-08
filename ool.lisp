@@ -1,10 +1,3 @@
-; Universit‡ degli Studi di Milano-Bicocca
-; A.A. 2014/2015
-; Dipartimento di Informatica Sistemistica e Comunicazione
-; Facolt‡ di Informatica
-; Linguaggi di Programmazione
-; Progetto Gennaio 2015: OOL in Common Lisp
-
 ;================================== BEGIN =====================================
 
 ; ASSOCIATION LIST TRAMITE (MAKE-HASH-TABLE)
@@ -31,7 +24,7 @@
 
 ; FUNZIONE PRIMITIVA (DEFINE-CLASS <CLASS-NAME> <PARENT> <SLOT-VALUE>*)
 ; Definisce una classe, dal nome <CLASS-NAME>, controllando che <PARENT> (se
-; non Ë NIL) sia una classe gi‡ definita precedentemente e gestisce eventuali 
+; non √® NIL) sia una classe gi√† definita precedentemente e gestisce eventuali 
 ; errori di input.
 (defun define-class (class-name parent &rest slot-values)
   (if (check-define class-name parent slot-values)  
@@ -61,8 +54,8 @@
       NIL))
 
 ; CHECK-SLOT
-; Controlla la legalit‡ dell'input per DEFINE-CLASS, nello specifico degli 
-; Slot-Values, restituisce NIL se non Ë nella forma (KEY . VALUE).
+; Controlla la legalit√† dell'input per DEFINE-CLASS, nello specifico degli 
+; Slot-Values, restituisce NIL se non √® nella forma (KEY . VALUE).
 (defun check-slot (slot-values)
   (if (null slot-values)
       T
@@ -71,8 +64,8 @@
 	  NIL)))
 
 ; PROCESS-SLOTS
-; Verifica se negli SLOT sono stati definiti metodi, se cosÏ fosse li processa.
-; Se la lista degli SLOT-VALUES Ë vuota la restituisce cosÏ com'Ë, altrimenti
+; Verifica se negli SLOT sono stati definiti metodi, se cos√¨ fosse li processa.
+; Se la lista degli SLOT-VALUES √® vuota la restituisce cos√¨ com'√®, altrimenti
 ; la scansiona per capire se contiene metodi. Se ne trova, li processa.
 ; Se trova attributi, copia semplicemente la chiave e il suo valore.
 (defun process-slots (slot-values)
@@ -90,7 +83,7 @@
 		  (process-slots (rest (rest slot-values)))))))
 
 ; METHOD-PROCESS
-; Ricevendo in input lo slot (KEY . VALUE), dove KEY Ë nome di un metodo e
+; Ricevendo in input lo slot (KEY . VALUE), dove KEY √® nome di un metodo e
 ; VALUE il suo corpo, crea una funzione COMMON LISP che abbia il nome del 
 ; metodo associandole una Lambda Expression che esegue il corpo vero e
 ; proprio presente in method-spec.
